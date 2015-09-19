@@ -23,7 +23,7 @@ $(document).ready(function() {
   }); // form submission
   
   function stripeResponseHandler(status, response) {
-    // Get a reference to the form:
+    // Get a reference to the form:  Question:  Where is form with id: "new user?"
     var f = $("#new_user");
 
     // Get the token from the response:
