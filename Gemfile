@@ -8,6 +8,8 @@ gem 'sqlite3', group: [:development, :test]
 # Stripe for handling Payments
 gem 'stripe', '1.16.1'
 
+ruby '2.2.1'
+
 # Figaro for hiding secret keys
 gem 'figaro', '1.0.0'
 
