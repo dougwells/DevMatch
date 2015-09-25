@@ -1,4 +1,7 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_current_user
+  
   def new
     @user = User.find(params[:user_id])
     @profile = Profile.new
@@ -37,5 +40,11 @@ class ProfilesController < ApplicationController
     def profile_params
       params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
     end
-  
+    
+    def only_current_user
+      @user = User.find(params[:user_id])
+      flash[:danger] = "NOTICE:  You can only edit your own profile."
+      redirect_to root_path unless @user == current_user
+    end
+    
 end
