@@ -13,6 +13,9 @@ ruby '2.2.1'
 # Figaro for hiding secret keys
 gem 'figaro', '1.0.0'
 
+# PaperClip for images
+gem 'paperclip', '4.2.1'
+
 # Use postgresql as the database for production
 group :production do
   gem 'pg'
