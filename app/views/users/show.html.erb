@@ -1,9 +1,24 @@
-<%= current_user.email %> <br/><br/>
-<%= @user.profile.first_name %><%= @user.profile.last_name %> <br/>
-<%= image_tag @user.profile.avatar.url(:thumb) %> <br/>
-<%= @user.profile.job_title %> <br/>
-<% if current_user.plan_id == 2 %>
-    <%= @user.profile.phone_number %> <br/>
-    <%= @user.profile.contact_email %> <br/>
-<% end %>
-<%= @user.profile.description %> <br/>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-offset-2 col-md-10">
+      <%= current_user.email %> <br/>
+    </div>
+  </div>
+      
+  <div class = "row">
+    <div class = "col-md-2">
+      <%= image_tag @user.profile.avatar.url(:thumb) %> <br/>
+    </div>
+    <div class = "col-md-10 text-top">
+      <h1><%= @user.profile.first_name %><%= @user.profile.last_name %></h1>
+      <h3><span class="job-title-icon"><%= job_title_icon %></span><%= @user.profile.job_title %></h3>
+      <h4><%= @user.profile.description %></h4>
+      <% if current_user.plan_id == 2 %>
+        <h5><%= @user.profile.phone_number %> 
+        <h5><%= @user.profile.contact_email %></h5>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
