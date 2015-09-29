@@ -1,33 +1,37 @@
-List all of our users
-
-<% User.all.each do |user| %>
-<div class = "container">
-      
-  <div class = "row">
-        <div class = "col-md-3">
-            <% if user.profile.avatar %>
-              <%= image_tag user.profile.avatar.url(:thumb) %> <br/>
-            <% end %>
-        </div>
-        <div class = "col-md-6">
-          <h1><%= user.profile.first_name %><%= user.profile.last_name %></h1>
-            <!--<% if user.profile.job_title == "Developer" %>-->
-            <!--  <i class='fa fa-usd'></i>-->
-            <!--<% end %>-->
-    
-          <h3><%= user.profile.job_title %></h3>
-          <div class = "well profile-block profile-description">
-            <h3>Description</h3>
-            <h4><%= user.profile.description %></h4>
-          </div>
-          <% if current_user.plan_id == 2 %>
-            <div class = "well profile-block profile-contact-info">
-              <h3>Premium Service:  Contact Information</h3>
-              <h5><%= user.profile.phone_number %> 
-              <h5><%= user.profile.contact_email %></h5>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Dev Match Community</h1>
+    <p>Welcome to the Dev Match community. Users must fill out a profile in order to be visible in the community.</p>
+    <ul class="list-unstyled">
+      <% @users.each do |user| %>
+        <% if user.profile %>
+        <li>
+          <div class="well row <%= cycle('white-bg', '') %>">
+            <div class="col-sm-4 text-center">
+              <% if user.profile.avatar %>
+                <%= link_to user do %>
+                  <%= image_tag user.profile.avatar.url(:thumb), class: 'user-index-avatar' %>
+                <% end %>
+              <% end %>
             </div>
-          <% end %>
-        </div>
+            
+            <div>
+              <%= link_to user do %>
+                <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+              <% end %>
+              <p>
+                <%= user.profile.job_title %> 
+                <% if user.plan_id == 2 %>
+                  <span class="label label-success">PRO</span>
+                <% elsif user.plan_id == 1 %>
+                  <span class="label label-danger">Cheapo</span>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
 </div>
-<% end %>
