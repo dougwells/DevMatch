@@ -1,7 +1,18 @@
 /* Users Show Page Styles */
 .user-show-avatar {
-  height: 128px;
-  width: 128px;
+  height: 180px;
+  width: 180px;
+}
+
+/* Users Index Page Styles */
+.user-index-avatar {
+  border-radius: 50%;
+}
+
+.user-show-name {
+    h1 {
+    margin-top: 0;
+  }
 }
 
 .job-title-icon {
@@ -26,15 +37,13 @@
   border-color: #4cae4c;
 }
 
-.well.contact-info {
-  background-color: #5bc0de;
-  border-color: #46b8da;
+.well.profile-contact-info {
+    color: white;
+    background-color: #337ab7;
+    border-color: #2e6da4;
 }
 
-/* Users Index Page Styles */
-.user-index-avatar {
-  border-radius: 50%;
-}
+
 
 .well.white-bg {
   background-color: white;
