@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class = "row">
-    <div class="col-md-8 text-center">
+    <div class="col-md-offset-1 col-md-7 text-left">
       <h1>Dev Match Community</h1>
       <p>Welcome to the Dev Match community. Users must fill out a profile in order to be visible in the community.</p>
     </div>
@@ -10,15 +10,15 @@
   <% @users.each do |user| %>
     <% if user.profile %>
       <ul>
-        <div class="well col-md-8 row <%= cycle('white-bg', '') %>">
-          <div class="col-md-2 text-center">
+        <div class="well col-md-10 row <%= cycle('white-bg', '') %>">
+          <div class="col-md-2 text-left">
             <% if user.profile.avatar %>
               <%= link_to user do %>
               <%= image_tag user.profile.avatar.url(:thumb), class: "user-index-avatar" %>
             <% end %>
         </div>
           
-        <div class="col-md-4 text-left">
+        <div class="col md-offset-2 col-md-6 text-left">
           <%= link_to user do %>
             <h2><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
           <% end %>
